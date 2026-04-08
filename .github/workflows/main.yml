@@ -26,7 +26,7 @@ name: instalando as dependências do projeto
 run: npm install
 
 # [execução da app]
-name: inciiando o servidor de mocks
+name: iniciando o servidor de mocks
 run: npm run mock-server &
 
 name: iniciar o servidor de app
