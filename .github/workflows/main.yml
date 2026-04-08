@@ -1,0 +1,33 @@
+# [Script de pipeline]
+name: CI Mentoria
+
+# gatilhos
+on:
+workflow_dispatch:
+
+# [Declarações]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    
+env:
+API_BASE_URL=http://localhost:3000
+PORT=4000
+
+# [acoes ou passos] (sucesso, ignorado, cancelado, falha)
+steps:
+
+# [projetos] apps, proj. de testes
+name: clone do projeto
+uses: actions/checkout@v4
+
+# [dependências do projeto] node/npm; python/pip
+name: instalando as dependências do projeto
+run: npm install
+
+# [execução da app]
+name: inciiando o servidor de mocks
+run: npm run mock-server &
+
+name: iniciar o servidor de app
+run: npm run server &
